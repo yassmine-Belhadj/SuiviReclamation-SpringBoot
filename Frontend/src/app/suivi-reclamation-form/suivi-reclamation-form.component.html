@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Modifier' : 'Créer' }} un Suivi de Réclamation</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="date">Date :</label>
+        <input id="date" type="date" formControlName="date">
+      </div>
+  
+      <div>
+        <label for="message">Message :</label>
+        <textarea id="message" formControlName="message"></textarea>
+      </div>
+  
+      <div>
+        <label for="action">Action :</label>
+        <textarea id="action" formControlName="action"></textarea>
+      </div>
+  
+      <div>
+        <label for="reclamationId">ID de la Réclamation :</label>
+        <input id="reclamationId" type="number" formControlName="reclamationId">
+      </div>
+  
+      <div>
+        <label for="employeId">ID de l'Employé :</label>
+        <input id="employeId" type="number" formControlName="employeId">
+      </div>
+  
+      <button type="submit" [disabled]="form.invalid">
+        {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+      </button>
+      <button type="button" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+  

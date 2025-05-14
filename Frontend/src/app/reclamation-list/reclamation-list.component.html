@@ -1,0 +1,33 @@
+<h2>Liste des Réclamations</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Produit</th>
+      <th>Statut</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Note</th>
+      <th>Client</th>
+      <th>Agent SAV</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of reclamations">
+      <td>{{ r.id }}</td>
+      <td>{{ r.produit }}</td>
+      <td>{{ r.statut }}</td>
+      <td>{{ r.description }}</td>
+      <td>{{ r.date }}</td>
+      <td>{{ r.note ?? '-' }}</td>
+      <td>{{ r.client.nom }}</td>
+      <td>{{ r.agentSAV.nom }}</td>
+      <td>
+        <button (click)="updateReclamation(r.id!)">Mettre à jour</button>
+        <button (click)="deleteReclamation(r.id!)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="addReclamation()">Ajouter une réclamation</button>

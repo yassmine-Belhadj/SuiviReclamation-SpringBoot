@@ -1,0 +1,30 @@
+<h2>Ajouter une Réclamation</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label>Produit:</label>
+  <input type="text" [(ngModel)]="reclamation.produit" name="produit" required />
+
+  <label>Statut:</label>
+  <input type="text" [(ngModel)]="reclamation.statut" name="statut" required />
+
+  <label>Description:</label>
+  <textarea [(ngModel)]="reclamation.description" name="description" required></textarea>
+
+  <label>Date:</label>
+  <input type="date" [(ngModel)]="reclamation.date" name="date" required />
+
+  <label>Note (optionnelle):</label>
+  <input type="number" [(ngModel)]="reclamation.note" name="note" min="0" max="10" />
+
+  <label>Client:</label>
+  <select [(ngModel)]="reclamation.client.id" name="client" required>
+    <option *ngFor="let c of clients" [value]="c.id">{{ c.nom }}</option>
+  </select>
+
+  <label>Agent SAV:</label>
+  <select [(ngModel)]="reclamation.agentSAV.id" name="agentSAV" required>
+    <option *ngFor="let a of agents" [value]="a.id">{{ a.nom }}</option>
+  </select>
+
+  <button type="submit">Enregistrer</button>
+</form>

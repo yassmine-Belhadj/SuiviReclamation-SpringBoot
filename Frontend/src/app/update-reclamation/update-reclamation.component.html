@@ -1,0 +1,22 @@
+<h2>Mettre à jour la réclamation</h2>
+<div *ngIf="isLoading">Chargement...</div>
+<div *ngIf="!isLoading && reclamation">
+  <form (ngSubmit)="updateReclamation()">
+    <label for="produit">Produit:</label>
+    <input id="produit" [(ngModel)]="reclamation.produit" name="produit" required />
+    
+    <label for="statut">Statut:</label>
+    <input id="statut" [(ngModel)]="reclamation.statut" name="statut" required />
+    
+    <label for="description">Description:</label>
+    <input id="description" [(ngModel)]="reclamation.description" name="description" required />
+    
+    <label for="date">Date:</label>
+    <input id="date" [(ngModel)]="reclamation.date" name="date" required />
+    
+    <label for="note">Note:</label>
+    <input id="note" [(ngModel)]="reclamation.note" name="note" type="number" required />
+    
+    <button type="submit">Mettre à jour</button>
+  </form>
+</div>

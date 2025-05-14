@@ -1,0 +1,30 @@
+<h2>Liste des Agents SAV</h2>
+
+<form (ngSubmit)="saveAgent()">
+  <input type="text" placeholder="Nom" [(ngModel)]="selectedAgent.nom" name="nom" required />
+  <input type="text" placeholder="Compétence" [(ngModel)]="selectedAgent.competence" name="competence" required />
+  <button type="submit">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+  <button type="button" (click)="resetForm()">Annuler</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Compétence</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agent of agents">
+      <td>{{ agent.id }}</td>
+      <td>{{ agent.nom }}</td>
+      <td>{{ agent.competence }}</td>
+      <td>
+        <button (click)="editAgent(agent)">Éditer</button>
+        <button (click)="deleteAgent(agent.id!)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

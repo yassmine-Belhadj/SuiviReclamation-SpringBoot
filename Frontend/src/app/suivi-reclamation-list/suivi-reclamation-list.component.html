@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Liste des Suivis de Réclamation</h2>
+  
+    <button (click)="goToCreate()">+ Nouveau Suivi</button>
+    
+    <table border="1" cellspacing="0" cellpadding="8">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Message</th>
+          <th>Action</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let suivi of suivis">
+          <td>{{ suivi.id }}</td>
+          <td>{{ suivi.date }}</td>
+          <td>{{ suivi.message }}</td>
+          <td>{{ suivi.action }}</td>
+          <td>
+            <button (click)="goToEdit(suivi.id!)">Modifier</button>
+            <button (click)="deleteSuiviReclamation(suivi.id!)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
